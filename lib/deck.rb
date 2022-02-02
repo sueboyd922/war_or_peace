@@ -35,9 +35,17 @@ class Deck
   end
 
   def percent_high_ranking
-    (@high_cards.count.to_f / @cards.count.to_f).ceil(4) * 100
+    high_ranking_cards
+    (@high_cards.count.to_f / @cards.count.to_f).round(4) * 100
   end
 
-require 'pry'; binding.pry
+  def remove_card
+    @cards.shift
+  end
+
+  def add_card(card)
+    @cards.push(card)
+  end
+#require 'pry'; binding.pry
 
 end
