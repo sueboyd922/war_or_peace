@@ -23,7 +23,7 @@ describe Player do
       player = Player.new('Clarisa', deck)
 
       expect(player.name).to eq('Clarisa')
-      require 'pry'; binding.pry
+      
     end
   end
 
