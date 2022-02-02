@@ -1,6 +1,8 @@
 require 'rspec'
 require './lib/card'
 
+#3tests total
+
 RSpec.describe Card do
   it "exists" do
     card = Card.new(:diamond, 'Queen', 12)

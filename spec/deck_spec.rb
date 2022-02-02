@@ -2,6 +2,7 @@ require 'rspec'
 require './lib/deck'
 require './lib/card'
 
+#7 tests total
 describe Deck do
   describe '#initialize' do
     it 'is an instance of the Deck class' do
@@ -101,7 +102,7 @@ describe Deck do
       deck.add_card(card4)
       expect(deck.percent_high_ranking).to eq(25)
     end
-  
+
 
   end
 

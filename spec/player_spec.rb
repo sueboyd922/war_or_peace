@@ -3,6 +3,7 @@ require './lib/deck'
 require './lib/card'
 require './lib/player'
 
+#3 tests total
 describe Player do
   describe '#initialize' do
     it 'it is an instance of Player class' do
@@ -23,7 +24,7 @@ describe Player do
       player = Player.new('Clarisa', deck)
 
       expect(player.name).to eq('Clarisa')
-      
+
     end
   end
 
