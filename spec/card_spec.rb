@@ -15,4 +15,12 @@ RSpec.describe Card do
     expect(card.value).to eq('Queen')
     expect(card.rank).to eq(12)
   end
+
+  it 'can be a different card' do
+    card = Card.new(:hearts, 'eight', 8)
+
+    expect(card.suit).to eq(:hearts)
+    expect(card.value).to eq('eight')
+    expect(card.rank).to eq(8)
+  end
 end
