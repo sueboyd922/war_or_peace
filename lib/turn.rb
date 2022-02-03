@@ -50,7 +50,13 @@ def pile_cards
 end
 
 def award_spoils(winner)
-  winner.deck.cards << @spoils_of_war
+  # @spoils_of_war.each do |card|
+  #   winner.deck.cards.push(@spoils_of_war.delete(card))
+  # end
+  until @spoils_of_war == []
+    winner.deck.cards << @spoils_of_war.shift
+  end
+
 end
 
 
