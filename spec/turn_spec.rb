@@ -4,6 +4,7 @@ require './lib/card'
 require './lib/player'
 require './lib/turn'
 
+#12 tests 
 card1 = Card.new(:heart, 'Jack', 11)
 card2 = Card.new(:heart, '10', 10)
 card3 = Card.new(:heart, '9', 9)

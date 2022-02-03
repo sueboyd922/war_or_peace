@@ -2,7 +2,7 @@ require 'rspec'
 require './lib/deck'
 require './lib/card'
 
-#7 tests total
+#8 tests total
 describe Deck do
   describe '#initialize' do
     it 'is an instance of the Deck class' do
@@ -26,17 +26,20 @@ describe Deck do
     end
   end
 
-  # describe 'high_ranking_cards' do
-  #   it 'tells you the high cards in the deck' do
-  #   card1 = Card.new(:diamond, 'Queen', 12)
-  #   card2 = Card.new(:spade, '3', 3)
-  #   card3 = Card.new(:heart, 'Ace', 14)
-  #   cards = [card1, card2, card3]
-  #   deck = Deck.new(cards)
-  #
-  #   expect(deck.high_ranking_cards).to eq()
-  #   end
-  # end
+  describe 'high_ranking_cards' do
+    it 'tells you the high cards in the deck' do
+    card1 = Card.new(:diamond, 'Queen', 12)
+    card2 = Card.new(:spade, '3', 3)
+    card3 = Card.new(:heart, 'Ace', 14)
+    cards = [card1, card2, card3]
+    deck = Deck.new(cards)
+    deck.high_ranking_cards
+
+    expect(deck.high_cards.count).to eq(2)
+    expect(deck.high_cards[0].value).to eq('Queen')
+
+    end
+  end
 
   describe '#percent_high_ranking' do
     it 'can tell you the percent of high cards in a deck' do
