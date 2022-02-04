@@ -1,6 +1,6 @@
-require './card'
-require './deck'
-require './player'
+require './lib/card'
+require './lib/deck'
+require './lib/player'
 
 class Turn
   attr_reader :player1, :player2, :spoils_of_war
@@ -8,18 +8,25 @@ class Turn
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
-    @type = ''
+    # @type = ''
     @spoils_of_war = []
   end
 
   def type
-    @p1 = @player1.deck.cards
-    @p2 = @player2.deck.cards
-    if @p1[0].rank == @p2[0].rank
-      if @p1[2].rank == @p2[2].rank
-        @type = :mutually_assured_destruction
+    # @p1 = @player1.deck.cards
+    # @p2 = @player2.deck.cards
+    if @player1.has_lost? || @player2.has_lost?
+      if @player1.has_lost?
+        puts "#{@player2.name} wins!"
       else
+        puts "#{@player1.name} wins!"
+      end
+    elsif @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
+      
+      if @player1.deck.rank_of_card_at(2) != @player2.deck.rank_of_card_at(2)
         @type = :war
+      else
+        @type = :mutually_assured_destruction
       end
     else
       @type = :basic
@@ -30,19 +37,19 @@ class Turn
     type
     case @type
     when :basic
-      if @p1[0].rank > @p2[0].rank
+      if @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
         return @player1
       else
         return @player2
       end
     when :war
-      if @p1[2].rank > @p2[2].rank
+      if @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
         return @player1
       else
         return @player2
       end
     when :mutually_assured_destruction
-      "There is no winner!"
+
     end
   end
 

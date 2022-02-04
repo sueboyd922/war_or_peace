@@ -1,16 +1,23 @@
-require './card'
+require './lib/card'
 
 class Deck
   attr_reader :cards
-  attr_reader :high_cards
+  # attr_reader :high_cards
 
   def initialize(cards)
     @cards = cards
-    @high_cards = []
+    #@high_cards = []
   end
 
   def rank_of_card_at(x)
-    cards[x].rank
+    # if @cards == []
+    #   return 0
+    # elsif @cards[2] == nil
+    if @cards[x] == nil
+      return 0
+    else
+      @cards[x].rank
+    end
   end
 
   def high_ranking_cards
@@ -22,8 +29,8 @@ class Deck
     # end}
     # @high_cards
 
-    @high_cards = cards.select {|card| card.rank > 10}
-    @high_cards
+    cards.select {|card| card.rank > 10}
+
 
 
     # cards.map do |card|
@@ -35,8 +42,8 @@ class Deck
   end
 
   def percent_high_ranking
-    high_ranking_cards
-    (@high_cards.count.to_f / @cards.count.to_f).round(4) * 100
+
+    (high_ranking_cards.count.to_f / @cards.count.to_f).round(4) * 100
   end
 
   def remove_card

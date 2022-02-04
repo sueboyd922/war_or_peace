@@ -35,8 +35,9 @@ describe Deck do
     deck = Deck.new(cards)
     deck.high_ranking_cards
 
-    expect(deck.high_cards.count).to eq(2)
-    expect(deck.high_cards[0].value).to eq('Queen')
+    expect(deck.high_ranking_cards.count).to eq(2)
+    expect(deck.high_ranking_cards).to eq([card1, card3])
+    expect(deck.high_ranking_cards[0].value).to eq('Queen')
 
     end
   end
