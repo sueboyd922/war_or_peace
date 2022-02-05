@@ -4,7 +4,7 @@ require './lib/card'
 require './lib/player'
 require './lib/turn'
 
-#12 tests 
+#12 tests
 card1 = Card.new(:heart, 'Jack', 11)
 card2 = Card.new(:heart, '10', 10)
 card3 = Card.new(:heart, '9', 9)
@@ -185,9 +185,9 @@ describe Turn do
 
       player1 = Player.new('Megan', deck1)
       player2 = Player.new('Aurora', deck2)
-
+      require 'pry'; binding.pry
       turn = Turn.new(player1, player2)
-      expect(turn.winner).to eq("There is no winner!")
+      expect(turn.winner).to eq("NO ONE")
     end
 
     it 'removes all 6 affected cards from play' do
@@ -200,6 +200,7 @@ describe Turn do
       player2 = Player.new('Aurora', deck2)
 
       turn = Turn.new(player1, player2)
+      require 'pry'; binding.pry
       turn.pile_cards
       expect(turn.spoils_of_war).to eq([])
       expect(player1.deck.cards.count).to eq(2)
