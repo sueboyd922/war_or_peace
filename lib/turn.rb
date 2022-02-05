@@ -8,13 +8,10 @@ class Turn
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
-    # @type = ''
     @spoils_of_war = []
   end
 
   def type
-    # @p1 = @player1.deck.cards
-    # @p2 = @player2.deck.cards
     if @player1.has_lost? || @player2.has_lost?
       if @player1.has_lost?
         puts "#{@player2.name} wins!"
@@ -22,7 +19,7 @@ class Turn
         puts "#{@player1.name} wins!"
       end
     elsif @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
-      
+
       if @player1.deck.rank_of_card_at(2) != @player2.deck.rank_of_card_at(2)
         @type = :war
       else
@@ -52,8 +49,6 @@ class Turn
 
     end
   end
-
-
 
   def pile_cards
     type
