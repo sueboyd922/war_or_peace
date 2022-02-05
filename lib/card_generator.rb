@@ -1,25 +1,38 @@
-# require './lib/cards.txt'
 require './lib/card.rb'
 
-file = File.open("./lib/cards.txt").map do |line|
-  line.strip
-end
 
-# p file
+class CardGenerator
+  attr_reader :deck
 
-step1 = file.map do |line|
-    line.split(", ")
+  def initialize(file)
+    @deck = []
+    @file = file
   end
 
-# p step1
+  def create_cards
+    step1 = File.open(@file).map do |line|
+      line.strip
+    end
 
-full_deck = []
+    step2 = step1.map do |line|
+      line.split(", ")
+    end
 
-step2 = step1.map do |card|
-  value = card[0]
-  suit = card[1].to_sym
-  rank = card[2].to_i
-  cards.push(Card.new(suit, value, rank))
+    step2.each do |card|
+      value = card[0]
+      suit = card[1].to_sym
+      rank = card[2].to_i
+      @deck.push(Card.new(suit, value, rank))
+    end
+  end
+
+  def shuffle
+    @deck.shuffle!
+  end
 end
 
-p cards
+# $full_deck = CardGenerator.new('./lib/cards.txt')
+# # require 'pry'; binding.pry
+#
+# $full_deck.create_cards
+# $full_deck.deck
