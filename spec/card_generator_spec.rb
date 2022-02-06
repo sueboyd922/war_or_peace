@@ -13,8 +13,4 @@ describe CardGenerator do
     expect(full_deck.deck.count).to eq(52)
   end
 
-  it 'has 13 of each suit' do
-    full_deck.create_cards
-  end
-
 end
