@@ -1,5 +1,6 @@
 require './lib/turn'
 require './lib/card_generator'
+# require './lib/full_deck'
 
 class Game
   # start game with two players and all turn counts at 0, initialize a new Turn!
@@ -18,6 +19,8 @@ class Game
     $full_deck = CardGenerator.new('./lib/cards.txt')
     $full_deck.create_cards
     $full_deck.shuffle
+    # ***if using the full_deck.rb comment out lines 19-21, uncomment 23 and remove .deck from 25, 26, and change the required file***
+    # $full_deck.shuffle!
     26.times do #simulates dealing cards, 1 by 1
       $deck1 << $full_deck.deck.shift
       $deck2 << $full_deck.deck.shift
