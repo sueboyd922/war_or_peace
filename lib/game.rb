@@ -4,6 +4,7 @@ require './lib/card_generator'
 
 class Game
   # start game with two players and all turn counts at 0, initialize a new Turn!
+  attr_reader :p1, :p2 
   def initialize(player1, player2)
     @p1 = player1
     @p2 = player2
