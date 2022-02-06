@@ -13,7 +13,7 @@ class CardGenerator
     step1 = File.open(@file).map do |line|
       line.strip
     end
-
+  
     step2 = step1.map do |line|
       line.split(", ")
     end
@@ -30,9 +30,3 @@ class CardGenerator
     @deck.shuffle!
   end
 end
-
-# $full_deck = CardGenerator.new('./lib/cards.txt')
-# # require 'pry'; binding.pry
-#
-# $full_deck.create_cards
-# $full_deck.deck

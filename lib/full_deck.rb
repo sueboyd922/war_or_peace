@@ -1,12 +1,10 @@
 require "./lib/card"
 require "./lib/deck"
 
-
 @suits = [:diamonds, :hearts, :spades, :clubs]
 $full_deck = []
 ranks_values = {:values => ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'Jack', 'Queen', 'King', 'Ace'],
 :ranks => [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]}
-
 
 @suits.each do |suit|
   13.times do
