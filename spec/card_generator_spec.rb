@@ -1,6 +1,7 @@
 require 'rspec'
 require './lib/card_generator'
 
+# 2 tests total
 full_deck = CardGenerator.new('./lib/cards.txt')
 
 describe CardGenerator do
