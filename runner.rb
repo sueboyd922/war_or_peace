@@ -4,15 +4,15 @@ def war_or_peace
   puts "Welcome to War! (or Peace)."
   puts "This game will be played with 52 cards."
   puts "Who is playing today?? Type your name!"
-  @user_name = gets.chomp
+  @user_name = gets.chomp # gets user name
   puts "and your opponent?"
-  @user2_name = gets.chomp
+  @user2_name = gets.chomp #gets user opponent
   puts "Type 'GO' to start the game!"
   puts "---" * 13
   @go = gets.chomp
-  $deck1 = []
+  $deck1 = [] #create two empty decks for players
   $deck2 = []
-  @player1 = Player.new(@user_name, Deck.new($deck1))
+  @player1 = Player.new(@user_name, Deck.new($deck1)) # initialize players and decks
   @player2 = Player.new(@user2_name, Deck.new($deck2))
 
   if @go.upcase == 'GO'
@@ -33,6 +33,7 @@ def war_or_peace
     puts "Try again!"
   end
 end
+
 
 
 war_or_peace
