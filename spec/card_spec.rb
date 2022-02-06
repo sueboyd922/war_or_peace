@@ -1,7 +1,7 @@
 require 'rspec'
 require './lib/card'
 
-#3tests total
+#3 tests total
 
 RSpec.describe Card do
   it "exists" do
