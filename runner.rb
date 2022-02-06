@@ -17,7 +17,7 @@ def war_or_peace
 
   if @go.upcase == 'GO'
     game = Game.new(@player1, @player2)
-    game.shuffle
+    game.shuffle_and_deal
     game.start
     puts ""
     if @player1.has_lost?

@@ -3,12 +3,13 @@ require './lib/deck'
 require './lib/player'
 
 class Turn
-  attr_reader :player1, :player2, :spoils_of_war
+  attr_reader :player1, :player2, :spoils_of_war, :discard_pile
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
     @spoils_of_war = []
+    @discard_pile = []
   end
 
   def type
@@ -62,8 +63,8 @@ class Turn
       end
     when :mutually_assured_destruction
       3.times do
-        @player1.deck.remove_card
-        @player2.deck.remove_card
+        @discard_pile << @player1.deck.remove_card
+        @discard_pile << @player2.deck.remove_card
       end
     end
   end

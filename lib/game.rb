@@ -2,7 +2,6 @@ require './lib/turn'
 require './lib/card_generator'
 
 class Game
-  # attr_reader :turn_num
 
   def initialize(player1, player2)
     @p1 = player1
@@ -14,7 +13,7 @@ class Game
     @turn = Turn.new(@p1, @p2)
   end
 
-  def shuffle
+  def shuffle_and_deal
     $full_deck = CardGenerator.new('./lib/cards.txt')
     $full_deck.create_cards
     $full_deck.shuffle
@@ -23,7 +22,6 @@ class Game
       $deck2 << $full_deck.deck.shift
     end
   end
-
 
   def start
     until @p1.has_lost? || @p2.has_lost?
@@ -58,6 +56,7 @@ class Game
     puts ""
     puts "#{@p1.name} had #{@p1.deck.cards.compact.count} cards at the end!"
     puts "#{@p2.name} had #{@p2.deck.cards.compact.count} cards at the end!"
+    puts "There were #{@turn.discard_pile.count} cards discarded!"
   end
 
 end
