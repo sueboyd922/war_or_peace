@@ -46,7 +46,6 @@ class Turn
         return @player2
       end
     when :mutually_assured_destruction
-
     end
   end
 
@@ -74,5 +73,4 @@ class Turn
       winner.deck.cards << @spoils_of_war.shift
     end
   end
-
 end

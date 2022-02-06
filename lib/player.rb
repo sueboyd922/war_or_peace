@@ -1,4 +1,3 @@
-require './lib/card'
 require './lib/deck'
 
 class Player
@@ -7,13 +6,9 @@ class Player
   def initialize(name, deck)
     @name = name
     @deck = deck
-
   end
 
   def has_lost?
     @has_lost = deck.cards.empty?
   end
-
-
-
 end
